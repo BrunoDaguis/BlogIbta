@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+	<ul class="clients">
+	  <% for(var i=0; i<clients.length; i++) {%>
+	    <li class="quote">
+	      <span><a href="Cliente/<%= clients[i]._id %>">Editar</a></span>
+	      <span><%= clients[i].name %></span>
+	      <span><%= clients[i].email %></span>
+	      <span><a href="Cliente/Excluir/<%= clients[i]._id %>">Excluir</a></span>
+	    </li>
+	  <% } %>
+	</ul>
+    <form action="/save" method="POST">
+		  <input type="text" placeholder="Nome" name="name">
+		  <input type="text" placeholder="Email" name="email">
+		  <button type="submit">Submit</button>
+	</form>
+</body>
+</html>

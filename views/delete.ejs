@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+	Excluir
+    <form action="/delete" method="POST">
+		  <input type="hidden" value="<%= client._id %>" name="_id">
+		  <input type="text" placeholder="Nome" readonly="readonly" value="<%= client.name %>" name="name">
+		  <input type="text" placeholder="Email" readonly="readonly" value="<%= client.email %>" name="email">
+		  <button type="submit">Submit</button>
+	</form>
+</body>
+</html>
