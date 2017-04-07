@@ -37,31 +37,31 @@ app.get('/', function (req, res) {
 
 /* USER */
 
-app.get('/user', function (req, res) {
+app.get('/api/user', function (req, res) {
 	userModel.get(function(results){
 		res.json(results);
 	});
 });
 
-app.get('/user/:id', function (req, res) {
+app.get('/api/user/:id', function (req, res) {
 	userModel.getById(req.params.id, function(result){
 		res.json(result);
 	});
 });
 
-app.post('/user', (req, res) => {
+app.post('/api/user', (req, res) => {
 	userModel.save(req.body, function(result){
 		res.json({_id: result._id});
 	});
 });
 
-app.put('/user', (req, res) => {
+app.put('/api/user', (req, res) => {
    userModel.save(req.body, function(result){
 		res.json({ success: true });
 	});
 });
 
-app.delete('/user/:id', (req, res) => {
+app.delete('/api/user/:id', (req, res) => {
 	userModel.remove(req.params.id, function(result){
 		res.json({ success: true });
 	});
@@ -69,31 +69,31 @@ app.delete('/user/:id', (req, res) => {
 
 /* post */
 
-app.get('/post', function (req, res) {
+app.get('/api/post', function (req, res) {
 	postModel.get(function(results){
 		res.json(results);
 	});
 });
 
-app.get('/post/:id', function (req, res) {
+app.get('/api/post/:id', function (req, res) {
 	postModel.getById(req.params.id, function(result){
 		res.json(result);
 	});
 });
 
-app.post('/post', (req, res) => {
+app.post('/api/post', (req, res) => {
 	postModel.save(req.body, function(result){
 		res.json({_id: result._id});
 	});
 });
 
-app.put('/post', (req, res) => {
+app.put('/api/post', (req, res) => {
    postModel.save(req.body, function(result){
 		res.json({ success: true });
 	});
 });
 
-app.delete('/post/:id', (req, res) => {
+app.delete('/api/post/:id', (req, res) => {
 	postModel.remove(req.params.id, function(result){
 		res.json({ success: true });
 	});
@@ -101,19 +101,19 @@ app.delete('/post/:id', (req, res) => {
 
 /* comments (post) */
 
-app.get('/comment', function (req, res) {
+app.get('/api/comment', function (req, res) {
 	commentModel.get(function(results){
 		res.json(results);
 	});
 });
 
-app.get('/comment/:id', function (req, res) {
+app.get('/api/comment/:id', function (req, res) {
 	commentModel.getById(req.params.id, function(result){
 		res.json(result);
 	});
 });
 
-app.post('/comment', (req, res) => {
+app.post('/api/comment', (req, res) => {
 	commentModel.save(req.body, function(comment){
 		postModel.addComment(req.body.post, comment._id, function(result){
 			res.json({_id: comment._id});
@@ -121,13 +121,13 @@ app.post('/comment', (req, res) => {
 	});
 });
 
-app.put('/comment', (req, res) => {
+app.put('/api/comment', (req, res) => {
    commentModel.save(req.body, function(result){
 		res.json({ success: true });
 	});
 });
 
-app.delete('/comment/:id', (req, res) => {
+app.delete('/api/comment/:id', (req, res) => {
 	//Busco comment pelo ID
 	commentModel.getById(req.params.id, function(comment){
 		//Removo comment da tabela de post
@@ -143,7 +143,7 @@ app.delete('/comment/:id', (req, res) => {
 });
 
 /* IMAGES */
-app.post('/post/image', (req, res) => {
+app.post('/api/post/image', (req, res) => {
 	imagesModel.save(req.body, function(image){
 		postModel.addImage(req.body.post, image._id, function(){
 			res.json({_id: image._id});
@@ -151,7 +151,7 @@ app.post('/post/image', (req, res) => {
 	});
 });
 
-app.delete('/post/image/:id', (req, res) => {
+app.delete('/api/post/image/:id', (req, res) => {
 	imagesModel.remove(req.params.id, function(image){
 		imagesModel.remove(req.params.id, function(result){
 			postModel.addImage(image.post, image._id, function(){
@@ -162,7 +162,7 @@ app.delete('/post/image/:id', (req, res) => {
 });
 
 /* LIKES */
-app.post('/post/like', (req, res) => {
+app.post('/api/post/like', (req, res) => {
 	likeModel.save(req.body, function(like){
 		postModel.addLike(req.body.post, function(){
 			res.json({_id: like._id});
@@ -170,7 +170,7 @@ app.post('/post/like', (req, res) => {
 	});
 });
 
-app.delete('/post/like/:id', (req, res) => {
+app.delete('/api/post/like/:id', (req, res) => {
 	likeModel.remove(req.params.id, function(result){
 		postModel.removeLike(req.body.post, function(){
 			res.json({ success: true });
