@@ -12,7 +12,6 @@ var bodyParser= require('body-parser');
 
 var app = express();
 
-
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -26,9 +25,14 @@ var options = {
 
 mongoose.connect('mongodb://ds141950.mlab.com:41950/blog', options);
 
+app.set('port', (process.env.PORT || 5000));
 
-app.listen(3000, () => {
+app.listen(app.get('port'), () => {
 	console.log('listening on 3000')
+});
+
+app.get('/', function (req, res) {
+	res.render('index.ejs');
 });
 
 /* USER */
