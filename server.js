@@ -67,6 +67,13 @@ app.delete('/api/user/:id', (req, res) => {
 	});
 });
 
+app.post('/api/user/login', (req, res) => {
+	userModel.login(req.body, function(result){
+		
+	});
+});
+
+
 /* post */
 
 app.get('/api/post', function (req, res) {

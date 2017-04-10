@@ -74,6 +74,14 @@ var user = {
 
 		    callback(result);
 		});
+	},
+	login: function(json, callback){
+		UserModel.findOne({ 'email': json.email, 'password': json.password }, function(err, result) {
+		    if (err)
+		      return console.log(err);
+
+		    callback(result);
+		});
 	}
 }
 module.exports = user;
