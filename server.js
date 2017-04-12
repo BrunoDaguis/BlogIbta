@@ -15,7 +15,7 @@ var bodyParser= require('body-parser');
 
 var app = express();
 
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.set('views', __dirname + '/views');
@@ -35,8 +35,9 @@ mongoose.connect('mongodb://ds141950.mlab.com:41950/blog', options);
 app.set('port', (process.env.PORT || 5000));
 
 app.listen(app.get('port'), () => {
-	console.log('listening on 3000')
+	console.log('listening on 5000')
 });
+<<<<<<< HEAD
 
 app.get('/', function (req, res) {
 	res.render('index.ejs');
@@ -46,6 +47,9 @@ app.get('/post', function (req, res) {
 	res.render('post.html');
 });
 
+=======
+app.use(express.static('./views'));
+>>>>>>> 5cd7b367264f079ec379c279286f9f51ad4b7a08
 /* USER */
 
 app.get('/api/user', function (req, res) {
@@ -80,7 +84,11 @@ app.delete('/api/user/:id', (req, res) => {
 
 app.post('/api/user/login', (req, res) => {
 	userModel.login(req.body, function(result){
+<<<<<<< HEAD
 		res.json(result);
+=======
+
+>>>>>>> 5cd7b367264f079ec379c279286f9f51ad4b7a08
 	});
 });
 
@@ -135,7 +143,7 @@ app.post('/api/comment', (req, res) => {
 	commentModel.save(req.body, function(comment){
 		postModel.addComment(req.body.post, comment._id, function(result){
 			res.json({_id: comment._id});
-		});		
+		});
 	});
 });
 
@@ -153,9 +161,9 @@ app.delete('/api/comment/:id', (req, res) => {
 			//Removo comment na tabela de comment
 			commentModel.remove(comment._id, function(){
 				res.json({ success: true });
-			});			
+			});
 
-		});	
+		});
 
 	});
 });
@@ -165,7 +173,7 @@ app.post('/api/post/image', (req, res) => {
 	imagesModel.save(req.body, function(image){
 		postModel.addImage(req.body.post, image._id, function(){
 			res.json({_id: image._id});
-		});	
+		});
 	});
 });
 
@@ -174,9 +182,9 @@ app.delete('/api/post/image/:id', (req, res) => {
 		imagesModel.remove(req.params.id, function(result){
 			postModel.addImage(image.post, image._id, function(){
 				res.json({ success: true });
-			});	
-		});	
-	});	
+			});
+		});
+	});
 });
 
 /* LIKES */
@@ -184,7 +192,7 @@ app.post('/api/post/like', (req, res) => {
 	likeModel.save(req.body, function(like){
 		postModel.addLike(req.body.post, function(){
 			res.json({_id: like._id});
-		});	
+		});
 	});
 });
 
@@ -192,6 +200,6 @@ app.delete('/api/post/like/:id', (req, res) => {
 	likeModel.remove(req.params.id, function(result){
 		postModel.removeLike(req.body.post, function(){
 			res.json({ success: true });
-		});		
+		});
 	});
 });
