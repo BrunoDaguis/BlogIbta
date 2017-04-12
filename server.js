@@ -1,3 +1,6 @@
+var http = require('http'),
+    fs = require('fs');
+
 var express = require('express');
 var mongoose = require('mongoose');
 
@@ -14,6 +17,10 @@ var app = express();
 
 app.use(bodyParser.json()); 
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+
 
 var options = {
 		db: { native_parser: true },
@@ -33,6 +40,10 @@ app.listen(app.get('port'), () => {
 
 app.get('/', function (req, res) {
 	res.render('index.ejs');
+});
+
+app.get('/post', function (req, res) {
+	res.render('post.html');
 });
 
 /* USER */
@@ -69,7 +80,7 @@ app.delete('/api/user/:id', (req, res) => {
 
 app.post('/api/user/login', (req, res) => {
 	userModel.login(req.body, function(result){
-		
+		res.json(result);
 	});
 });
 
