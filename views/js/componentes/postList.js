@@ -8,7 +8,7 @@ app.component('postList', {
     let post = this;
       $http(url).success(function(data){
          post.posts = data;
-         console.log(post.projetos);
+         console.log(post.posts);
        })
        .error(function(erro){
            console.log(erro);
