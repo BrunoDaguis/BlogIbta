@@ -14,5 +14,4 @@ app.component('postList', {
            console.log(erro);
        });
     }
-    }
 });

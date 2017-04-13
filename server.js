@@ -37,20 +37,10 @@ app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), () => {
 	console.log('listening on 5000')
 });
-<<<<<<< HEAD
 
-app.get('/', function (req, res) {
-	res.render('index.ejs');
-});
-
-app.get('/post', function (req, res) {
-	res.render('post.html');
-});
-
-=======
 app.use(express.static('./views'));
->>>>>>> 5cd7b367264f079ec379c279286f9f51ad4b7a08
-/* USER */
+
+
 
 app.get('/api/user', function (req, res) {
 	userModel.get(function(results){
@@ -84,11 +74,7 @@ app.delete('/api/user/:id', (req, res) => {
 
 app.post('/api/user/login', (req, res) => {
 	userModel.login(req.body, function(result){
-<<<<<<< HEAD
 		res.json(result);
-=======
-
->>>>>>> 5cd7b367264f079ec379c279286f9f51ad4b7a08
 	});
 });
 
