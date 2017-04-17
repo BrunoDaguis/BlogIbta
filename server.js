@@ -8,9 +8,7 @@ var userModel = require('./model/user.js');
 var postModel = require('./model/post.js');
 var commentModel = require('./model/comment.js');
 var imagesModel = require('./model/image.js');
-
 var likeModel = require('./model/like.js');
-
 var bodyParser= require('body-parser');
 
 var app = express();
