@@ -4,5 +4,8 @@ let app = angular.module('blog', ['ngRoute', 'ngSanitize'])
 $routeProvider.when('/index',{
     templateUrl:'partials/home.html',
 });
+$routeProvider.when('/single/:_id',{
+    templateUrl:'partials/singlePost.html',
+});
 $routeProvider.otherwise({redirectTo:'/index'});
 });
