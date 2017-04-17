@@ -3,7 +3,6 @@ var http = require('http'),
 
 var express = require('express');
 var mongoose = require('mongoose');
-
 var userModel = require('./model/user.js');
 var postModel = require('./model/post.js');
 var commentModel = require('./model/comment.js');
