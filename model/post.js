@@ -37,11 +37,11 @@ var post = {
 	_update: function(json, callback){
 		post.getById(json._id, function(result){
 
-			model.title = json.title;
-			model.description = json.description;
-			model.content = json.content;
-			model.image = json.image;
-			model.url = parseToUrl(json.title);
+			result.title = json.title;
+			result.description = json.description;
+			result.content = json.content;
+			result.image = json.image;
+			result.url = parseToUrl(json.title);
 			
 			result.save(function(err) {
 				if (err)
