@@ -1,3 +1,6 @@
+var http = require('http'),
+    fs = require('fs');
+
 var express = require('express');
 var mongoose = require('mongoose');
 var userModel = require('./model/user.js');
@@ -5,13 +8,16 @@ var postModel = require('./model/post.js');
 var commentModel = require('./model/comment.js');
 var imagesModel = require('./model/image.js');
 var likeModel = require('./model/like.js');
-
 var bodyParser= require('body-parser');
 
 var app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+
 
 var options = {
 		db: { native_parser: true },
@@ -28,8 +34,10 @@ app.set('port', (process.env.PORT || 5000));
 app.listen(app.get('port'), () => {
 	console.log('listening on 5000')
 });
+
 app.use(express.static('./views'));
-/* USER */
+
+
 
 app.get('/api/user', function (req, res) {
 	userModel.get(function(results){
@@ -63,7 +71,7 @@ app.delete('/api/user/:id', (req, res) => {
 
 app.post('/api/user/login', (req, res) => {
 	userModel.login(req.body, function(result){
-
+		res.json(result);
 	});
 });
 

@@ -76,7 +76,13 @@ var user = {
 		});
 	},
 	login: function(json, callback){
-		UserModel.findOne({ 'email': json.email, 'password': json.password }, function(err, result) {
+		var usersProjection = { 
+		    __v: false,
+		    password: false,
+		    avatar: true
+		};
+
+		UserModel.findOne({ 'email': json.email, 'password': json.password }, usersProjection, function(err, result) {
 		    if (err)
 		      return console.log(err);
 

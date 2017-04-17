@@ -7,9 +7,9 @@ var PostSchema   = Schema({
   description: {type: String, required: true},
   url: {type: String, required: true},
   image: {type: String },
+  content: {type: String, required: true },
   user: {type: Schema.ObjectId, required: true, ref: "user"},
   comments: [{type: Schema.ObjectId, ref: "comment"}],
-  images: [{type: Schema.ObjectId, ref: "image"}],
   dateCreate:  {type: Date, default: Date.now},
   likes: {type: Number, default: 0}
 });
@@ -22,6 +22,7 @@ var post = {
 
 		model.title = json.title;
 		model.description = json.description;
+		model.content = json.content;
 		model.image = json.image;
 		model.url = parseToUrl(json.title);
 		model.user = json.user;
@@ -36,7 +37,11 @@ var post = {
 	_update: function(json, callback){
 		post.getById(json._id, function(result){
 
-			result.description = json.description;
+			model.title = json.title;
+			model.description = json.description;
+			model.content = json.content;
+			model.image = json.image;
+			model.url = parseToUrl(json.title);
 			
 			result.save(function(err) {
 				if (err)
@@ -61,26 +66,6 @@ var post = {
 		PostModel.findOneAndUpdate(postId, {$pull: {comments: commentId}}, function(err, result){
 	        if (err)
 				return console.log(err);
-
-			callback(result);
-	    });
-	},
-	addImage: function(postId, imageId, callback){
-		post.getById(postId, function(result){
-			result.images.push(imageId);
-			
-			result.save(function(err) {
-				if (err)
-					return console.log(err);
-
-				callback(result);
-			});	
-		});
-	},
-	removeImage: function(postId, imageId, callback){
-		PostModel.findOneAndUpdate(postId, {$pull: {images: imageId}}, function(err, result){
-	        if (err)
-					return console.log(err);
 
 			callback(result);
 	    });
