@@ -1,10 +1,10 @@
-<header class="intro-header" style="background-image: url('img/post-bg.jpg')">
+<header class="intro-header" style="background-image: url('{{$ctrl.singlePosts.image}}')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     <h1>{{$ctrl.singlePosts.title}}</h1>
-                    <h2 class="subheading">Problems look mighty small from 150 miles up</h2>
+                    <h2 class="subheading">{{$ctrl.singlePosts.description | limitTo: 40}}...</h2>
                     <span class="meta">Postado por: <a href="#">{{$ctrl.singlePosts.user.name}}</a> {{$ctrl.singlePosts.dateCreate | date}}</span>
                 </div>
             </div>

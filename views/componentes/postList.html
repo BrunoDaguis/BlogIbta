@@ -1,14 +1,14 @@
 <div class="post-preview" ng-repeat= "post in $ctrl.posts">
   <a href="#/single/{{post._id}}">
     <div class="col-md-3">
-      <img class="img-responsive img-rounded" src="img/post-sample-image.jpg" alt="">
+      <img class="img-responsive img-rounded" ng-src="{{post.image}}" alt="">
     </div>
     <div class="col-md-8">
       <h2 class="post-title">
         {{post.title}}
       </h2>
       <h3 class="post-subtitle" style="color:#777; margin:10px 0 20px 0;">
-      {{post.description}}
+      {{post.description | limitTo: 40}}...
       </h3>
     </div>
   </a>
