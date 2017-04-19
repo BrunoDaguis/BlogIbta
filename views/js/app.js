@@ -11,7 +11,7 @@ $routeProvider.when('/login/',{
     templateUrl:'partials/login.html',
 });
 $routeProvider.when('/admin/',{
-    templateUrl:'partials/new.html',
+    templateUrl:'partials/admin.html',
 });
 $routeProvider.when('/admin/new',{
     templateUrl:'partials/new.html',
