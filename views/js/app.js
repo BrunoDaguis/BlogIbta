@@ -1,4 +1,4 @@
-let app = angular.module('blog', ['ngRoute', 'ngSanitize'])
+let app = angular.module('blog', ['ngRoute', 'ngSanitize', 'textAngular'])
 .config(function($routeProvider,$locationProvider){
 //$locationProvider.html5Mode(true);
 $routeProvider.when('/index',{
@@ -6,6 +6,18 @@ $routeProvider.when('/index',{
 });
 $routeProvider.when('/single/:_id',{
     templateUrl:'partials/singlePost.html',
+});
+$routeProvider.when('/login/',{
+    templateUrl:'partials/login.html',
+});
+$routeProvider.when('/admin/',{
+    templateUrl:'partials/new.html',
+});
+$routeProvider.when('/admin/new',{
+    templateUrl:'partials/new.html',
+});
+$routeProvider.when('/admin/new-user',{
+    templateUrl:'partials/new.html',
 });
 $routeProvider.otherwise({redirectTo:'/index'});
 });
