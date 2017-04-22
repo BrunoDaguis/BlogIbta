@@ -4,7 +4,7 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <div class="post-heading">
                     <h1>{{$ctrl.singlePosts.title}}</h1>
-                    <h2 class="subheading">{{$ctrl.singlePosts.description | limitTo: 40}}...</h2>
+                    <h2 class="subheading">{{$ctrl.singlePosts.description}}</h2>
                     <span class="meta">Postado por: <a href="#">{{$ctrl.singlePosts.user.name}}</a> {{$ctrl.singlePosts.dateCreate | date}}</span>
                 </div>
             </div>
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                {{$ctrl.singlePosts.description}}
+                <div ng-bind-html="$ctrl.singlePosts.content"></div>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@ app.component('singlePosts', {
     singlePosts :'<'
    },
    templateUrl: 'componentes/single.html',
-    controller:  function ($http, $sce, $routeParams) {
+    controller:  function ($http, $sce, $routeParams, $sanitize) {
     let single = this;
       $http.get('api/post/'+$routeParams._id).success(function(data){
          single.singlePosts = data;

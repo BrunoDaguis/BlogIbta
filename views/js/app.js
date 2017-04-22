@@ -13,11 +13,11 @@ $routeProvider.when('/login/',{
 $routeProvider.when('/admin/',{
     templateUrl:'partials/admin.html',
 });
-$routeProvider.when('/admin/new',{
-    templateUrl:'partials/new.html',
+$routeProvider.when('/admin/new-post',{
+    templateUrl:'partials/new_post.html',
 });
 $routeProvider.when('/admin/new-user',{
-    templateUrl:'partials/new.html',
+    templateUrl:'partials/new_user.html',
 });
 $routeProvider.otherwise({redirectTo:'/index'});
 });

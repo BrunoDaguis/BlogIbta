@@ -1,0 +1,29 @@
+<header class="intro-header" style="background-image: url('http://cdn.adventuretravelnews.com/wp-content/uploads/2015/10/shutterstock_231471649.png');">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="site-heading">
+                    <h1>Cadastre-se</h1>
+                    <hr class="small">
+                    <span class="subheading">e compartilhe momentos incrivéis</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 thumbnail col-md-offset-4" style="padding:10px;">
+          <p class="text-center"> <b>Seja bem vindo ao Blogging</b></p>
+        <form name="$ctrl.formulario" ng-submit="$ctrl.submeter()">
+          <div class="alert {{$ctrl.class}}" ng-show="$ctrl.mensagem">{{$ctrl.mensagem}}</div>
+          <label for="">Nome</label>
+          <input type"text" class="form-control" name="name" value="seu nome aqui" placeholder="seu nome aqui" ng-model="$ctrl.formulario.name ">
+          <label for="">E-mail</label>
+          <input type"email" class="form-control" name="email" value="seuusuario@provedor.com" placeholder="seuusuario@provedor.com" ng-model="$ctrl.formulario.email">
+          <label for="" style="margin-top:10px;">Senha</label>
+          <input type="password" class="form-control" name="password" value="******" placeholder="******" ng-model="$ctrl.formulario.password">
+          <button style="margin-top:10px;" type="submit" class="btn btn-lg btn-info form-control" name="button">Cadastre-se</button>
+        </form>
+        </div>
+</div>
