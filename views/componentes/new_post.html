@@ -16,15 +16,17 @@
     <form action="" name="$ctrl.posts" ng-submit="$ctrl.submeter()">
       <div class="alert {{$ctrl.class}}" ng-show="$ctrl.mensagem">{{$ctrl.mensagem}}</div>
       <label for="">Titulo</label>
-      <input type"text" class="form-control" name="title" value="seu nome aqui" placeholder="seu nome aqui" ng-model="$ctrl.posts.title">
+      <input type"text" class="form-control" name="title" value="Titulo" placeholder="Titulo" ng-model="$ctrl.posts.title">
       <label for="">Imagem</label>
-      <input type"text" class="form-control" name="image" value="seu nome aqui" placeholder="seu nome aqui" ng-model="$ctrl.posts.image">
+      <input type"text" class="form-control" name="image" value="imagem" placeholder="imagem" ng-model="$ctrl.posts.image">
       <label for="">Descricão</label>
       <textarea class="form-control" name="description" rows="8" cols="80" ng-model="$ctrl.posts.description"></textarea>
       <label for="">Conteúdo</label>
       <div text-angular name="content" ng-model="$ctrl.posts.content"></div>
       <label>user</label>
-      <input type="text" name="user" ng-model="$ctrl.posts.user">
+      <select ng-model="$ctrl.posts.user" class="form-control">
+        <option ng-repeat="user in $ctrl.users">{{user._id}}</option>
+      </select>
       <button class="btn btn-default "type="submit" name="button">Gravar post</button>
     </form>
   </div>

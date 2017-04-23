@@ -1,10 +1,7 @@
 app.component('newUser', {
-  bindings:{
-    user :'<'
-   },
    templateUrl: 'componentes/new_user.html',
    controller:  function ($http, $sce) {
-    let user = this;
+    let user = this;;
     user.submeter = function(){
         $http.post('/api/user', user.formulario)
           .success(function(){
