@@ -15,15 +15,15 @@
     <div class="row">
         <div class="col-md-4 thumbnail col-md-offset-4" style="padding:10px;">
           <p class="text-center"> <b>Seja bem vindo ao Blogging</b></p>
-        <form name="$ctrl.formulario" ng-submit="$ctrl.submeter()">
+        <form label-field="$ctrl.formulario" ng-submit="$ctrl.submeter()">
           <div class="alert {{$ctrl.class}}" ng-show="$ctrl.mensagem">{{$ctrl.mensagem}}</div>
           <label for="">Nome</label>
-          <input type"text" class="form-control" name="name" value="seu nome aqui" placeholder="seu nome aqui" ng-model="$ctrl.formulario.name ">
+          <input type"text" class="form-control" label-field="name" value="seu nome aqui" placeholder="seu nome aqui" ng-model="$ctrl.formulario.name ">
           <label for="">E-mail</label>
-          <input type"email" class="form-control" name="email" value="seuusuario@provedor.com" placeholder="seuusuario@provedor.com" ng-model="$ctrl.formulario.email">
+          <input type"email" class="form-control" label-field="email" value="seuusuario@provedor.com" placeholder="seuusuario@provedor.com" ng-model="$ctrl.formulario.email">
           <label for="" style="margin-top:10px;">Senha</label>
-          <input type="password" class="form-control" name="password" value="******" placeholder="******" ng-model="$ctrl.formulario.password">
-          <button style="margin-top:10px;" type="submit" class="btn btn-lg btn-info form-control" name="button">Cadastre-se</button>
+          <input type="password" class="form-control" label-field="password" value="******" placeholder="******" ng-model="$ctrl.formulario.password">
+          <button style="margin-top:10px;" type="submit" class="btn btn-lg btn-info form-control" label-field="button">Cadastre-se</button>
         </form>
         </div>
 </div>

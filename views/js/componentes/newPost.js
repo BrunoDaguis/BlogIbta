@@ -5,14 +5,14 @@ app.component('newPost', {
    templateUrl: 'componentes/new_post.html',
    controller:  function ($http, $sce) {
     let post = this;
-    $http.get('/api/user')
-    .success(function(users){
-      post.users = users;
-      console.log(users);
-    }).error(function(error){
-      console.log(error);
+     post.users = [];
+      $http.get('/api/user')
+      .success(function(users){
+        post.users = users;
+        console.log(users);
+      }).error(function(error){
+        console.log(error);
     });
-
     post.submeter = function(){
         $http.post('/api/post', post.posts)
           .success(function(){
