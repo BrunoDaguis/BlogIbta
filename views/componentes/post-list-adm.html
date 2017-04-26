@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row" ng-repeat= "post in $ctrl.admPosts | orderBy : -dateCreate">
+      <div class="col-md-8">
+        <h2 class="post-title">
+            <a href="#/single/{{post._id}}">
+          {{post.title}}
+            </a>
+        </h2>
+          <p>Publicado por:{{post.user.name}} - {{post.dateCreate | date}}</p>
+      </div>
+      <div class="col-md-3">
+        <button class="btn btn-danger btn-lg" ng-click="$ctrl.remover(post)">remover</button>
+      </div>
+    <hr>
+  </div>
+</div>

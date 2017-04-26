@@ -14,7 +14,6 @@
 <div class="container">
   <div class="col-md-8">
     <form label-field="$ctrl.posts">
-      <div class="alert {{$ctrl.class}}" ng-show="$ctrl.mensagem">{{$ctrl.mensagem}}</div>
       <label for="">Titulo</label>
       <input type"text" class="form-control" label-field="title" value="Titulo" placeholder="Titulo" ng-model="$ctrl.posts.title">
       <label for="">Imagem</label>
@@ -29,5 +28,6 @@
       </select>
       <button class="btn btn-default" label-field="button" ng-click="$ctrl.submeter()">Gravar post</button>
     </form>
+    <div class="alert {{$ctrl.class}}" ng-show="$ctrl.mensagem">{{$ctrl.mensagem}}</div>
   </div>
 </div>

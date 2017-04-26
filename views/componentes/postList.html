@@ -1,4 +1,4 @@
-<div class="post-preview" ng-repeat= "post in $ctrl.posts">
+<div class="post-preview" ng-repeat= "post in $ctrl.posts | orderBy : -dateCreate">
   <a href="#/single/{{post._id}}">
     <div class="col-md-3">
       <img class="img-responsive img-rounded" ng-src="{{post.image}}" alt="">

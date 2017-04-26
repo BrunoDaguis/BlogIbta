@@ -14,17 +14,17 @@ app.component('newPost', {
         console.log(error);
     });
     post.submeter = function(){
-        $http.post('/api/post', post.posts)
-          .success(function(){
-            post.posts = {}
-            console.log(post.posts);
-            post.mensagem = "usuário cadastro adicionado com sucesso"
-            user.class ="alert-success"
-          }).error(function(){
-              console.log('não gravou');
-              post.mensagem = "verifique os campos e tente novamente"
-              user.class ="alert-danger"
-          });
+      $http.post('/api/post', post.posts)
+        .success(function(){
+          post.posts = {}
+          console.log(post.posts);
+          post.mensagem = "Post criado com sucesso"
+          user.class ="alert-success"
+        }).error(function(){
+            console.log('não gravou');
+            post.mensagem = "verifique os campos e tente novamente"
+            user.class ="alert-danger"
+      });
     }
   }
 });

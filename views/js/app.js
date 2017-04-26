@@ -16,6 +16,9 @@ $routeProvider.when('/admin/',{
 $routeProvider.when('/admin/new-post',{
     templateUrl:'partials/new_post.html',
 });
+$routeProvider.when('/admin/posts',{
+    templateUrl:'partials/post-list.html',
+});
 $routeProvider.when('/admin/new-user',{
     templateUrl:'partials/new_user.html',
 });

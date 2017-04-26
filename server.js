@@ -38,7 +38,6 @@ app.listen(app.get('port'), () => {
 app.use(express.static('./views'));
 
 
-
 app.get('/api/user', function (req, res) {
 	userModel.get(function(results){
 		res.json(results);
