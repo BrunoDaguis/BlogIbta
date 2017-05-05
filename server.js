@@ -74,6 +74,12 @@ app.post('/api/user/login', (req, res) => {
 	});
 });
 
+app.get('/api/user/authentication/:hash', function (req, res) {
+	if(req.params.hash){
+		res.json(true);
+	}
+	res.json(false);
+});
 
 /* post */
 
