@@ -15,9 +15,10 @@ app.component('postAdm', {
     post.remover = function(post){
        $http.delete('/api/post/'+post._id)
        .success(function(){
-           let indexPost = $scope.admPosts.indexOf(post);
-           $scope.admPosts.splice(indexPost, 1)
+          //  let indexPost = $scope.admPosts.indexOf(post);
+          //  $scope.admPosts.splice(indexPost, 1)
            post.mensagem = ' removido com sucesso'
+           location.reload();
        }).error(function(err){
            console.log(err);
        })

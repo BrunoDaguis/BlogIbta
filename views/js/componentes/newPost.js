@@ -19,11 +19,11 @@ app.component('newPost', {
           post.posts = {}
           console.log(post.posts);
           post.mensagem = "Post criado com sucesso"
-          user.class ="alert-success"
+          post.class ="alert-success"
         }).error(function(){
             console.log('não gravou');
             post.mensagem = "verifique os campos e tente novamente"
-            user.class ="alert-danger"
+            post.class ="alert-danger"
       });
     }
   }

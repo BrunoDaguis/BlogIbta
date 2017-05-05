@@ -15,15 +15,16 @@
     <div class="row">
         <div class="col-md-4 thumbnail col-md-offset-4" style="padding:10px;">
           <p class="text-center"> <b>Seja bem vindo ao Blogging</b></p>
-        <form class="" action="index.html" method="post">
+        <form class="" label-field="$ctrl.logon">
+          <div class="alert {{$ctrl.class}}">{{$ctrl.mensagem}} </div>
           <label for="">E-mail</label>
-          <input type"email" class="form-control" name="" value="" placeholder="seuusuario@provedor.com">
+          <input type"email" class="form-control" label-field="email" ng-model="$ctrl.logon.email" placeholder="seuusuario@provedor.com">
           <label for="" style="margin-top:10px;">Senha</label>
-          <input type"password" class="form-control" name="" value="" placeholder="******">
-          <button style="margin-top:10px;" type="button" class="btn btn-lg btn-info form-control" name="button">Entrar</button>
+          <input type"password" class="form-control" label-field="password" ng-model="$ctrl.logon.password" placeholder="******">
+          <button style="margin-top:10px;" type="button" class="btn btn-lg btn-info form-control" ng-click="$ctrl.entrar()" name="button">Entrar</button>
         </form>
         <p class="text-center"> <b>Se preferir entre com Facebook</b></p>
-        <button type="button" class="btn btn-lg btn-info form-control" name="button"> <i class="fa fa-facebook-square"></i>&nbsp;Entrar com Facebook</button>
+        <button type="submit" class="btn btn-lg btn-info form-control" name="button"> <i class="fa fa-facebook-square"></i>&nbsp;Entrar com Facebook</button>
         </div>
     </div>
 </div>

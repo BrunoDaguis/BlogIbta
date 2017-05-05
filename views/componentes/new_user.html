@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-4 thumbnail col-md-offset-4" style="padding:10px;">
           <p class="text-center"> <b>Seja bem vindo ao Blogging</b></p>
-        <form label-field="$ctrl.formulario" ng-submit="$ctrl.submeter()">
+        <form name="$ctrl.formulario" ng-submit="$ctrl.submeter()">
           <div class="alert {{$ctrl.class}}" ng-show="$ctrl.mensagem">{{$ctrl.mensagem}}</div>
           <label for="">Nome</label>
           <input type"text" class="form-control" label-field="name" value="seu nome aqui" placeholder="seu nome aqui" ng-model="$ctrl.formulario.name ">

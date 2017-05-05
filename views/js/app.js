@@ -22,5 +22,8 @@ $routeProvider.when('/admin/posts',{
 $routeProvider.when('/admin/new-user',{
     templateUrl:'partials/new_user.html',
 });
+$routeProvider.when('/admin/new-user/:_id',{
+    templateUrl:'partials/new_user.html',
+});
 $routeProvider.otherwise({redirectTo:'/index'});
 });
